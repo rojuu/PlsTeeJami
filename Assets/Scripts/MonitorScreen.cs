@@ -20,7 +20,7 @@ public class MonitorScreen : MonoBehaviour {
     {
         Text[] permitTexts = GetComponentsInChildren<Text>();
         permitTexts[0].text = boatPermit.registerNumber;
-        permitTexts[1].text = boatPermit.expirationDate.ToString();
+        permitTexts[1].text = boatPermit.expirationDate.Day + "." + boatPermit.expirationDate.Month + "." + boatPermit.expirationDate.Year;
         permitTexts[2].text = boatPermit.owner;
         for (int i = 0; i < boatPermit.allowedFishes.Count; i++)
         {
