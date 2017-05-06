@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< 30977bdcb8c1cf992249d0651e1e0be562c06226
+guid: 3ceca88593caa364c93b5e247d8b9510
+timeCreated: 1494074280
+=======
 guid: bc63165ca1433e84b8b68954ada8ebed
 timeCreated: 1494075518
+>>>>>>> Gamemanager + fish prefabs
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
