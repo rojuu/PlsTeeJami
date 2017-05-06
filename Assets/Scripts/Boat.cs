@@ -11,10 +11,44 @@ public class Boat : MonoBehaviour
     public List<Fish> fishes;
     public string registerNumber;
     
+    [SerializeField] private float speed;
+    private Transform startPoint, endPoint;
 
     private void Start()
     {
         Legal = Random.value > .3f;
+        registerNumber = CreateRegisterNumber();
+
         permit = new Permit(this);
+
+        print(Legal + " : " + permit.isLegal);
+        print(registerNumber + " : " + permit.registerNumber);
+        print(permit.expirationDate.Day + "." + permit.expirationDate.Month + "." + permit.expirationDate.Year);
+
+        startPoint = GameObject.Find("StartPoint").GetComponent<Transform>();
+        endPoint = GameObject.Find("EndPoint").GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.x < endPoint.position.x)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
+        }
+        //else
+        //{
+        //    // reach end stuff
+        //}
+    }
+
+    private string CreateRegisterNumber()
+    {
+        char[] characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        string number = "";
+        for (int i = 0; i < 5; i++)
+        {
+            number += characters[Random.Range(0, characters.Length)];
+        }
+        return number;
     }
 }

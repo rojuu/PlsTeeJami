@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class JaniBoat : MonoBehaviour
 {
+    public GameObject screenPermit;
+    public float speed;
+
     private bool mouseOver;
     private MonitorScreen monitorScreen;
     private Boat boat; // zoomed boat
-
-    public GameObject screenPermit;
 
     void Start ()
     {
@@ -17,7 +18,9 @@ public class JaniBoat : MonoBehaviour
     }
 	void Update ()
     {
-		if (Input.GetMouseButtonDown(0) && mouseOver)
+        transform.Translate(Vector2.right * Time.deltaTime * speed);
+
+        if (Input.GetMouseButtonDown(0) && mouseOver)
         {
             monitorScreen.SetPermitObjects(boat.permit);
             if (!screenPermit.activeInHierarchy)
