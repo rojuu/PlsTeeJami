@@ -9,7 +9,7 @@ public class Arrow : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up * 4.3f;
+        rb.velocity = Vector2.up * 4.1f;
     }
 	void Update ()
     {

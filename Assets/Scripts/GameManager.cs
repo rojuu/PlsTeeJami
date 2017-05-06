@@ -6,9 +6,13 @@ public class GameManager : MonoBehaviour
     public static GameManager GM;
 
     public List<GameObject> fishPrefabs;
+    public GameObject shipPrefab;
+    public Transform startPos;
     public Texture2D cursorTexture;
     public bool shooting;
 
+    private float timer;
+    private float nextSpawn;
     private int _mistakes;
     public int Mistakes
     {
@@ -27,6 +31,19 @@ public class GameManager : MonoBehaviour
             GM = this;
         else if (GM != this)
             Destroy(gameObject);
+
+        nextSpawn = Random.Range(12f, 20f);
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > nextSpawn)
+        {
+            Instantiate(shipPrefab, startPos.position, Quaternion.identity);
+            nextSpawn = Random.Range(12f, 20f);
+            timer = 0f;
+        }
     }
 
     private void GameOver()

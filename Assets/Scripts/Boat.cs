@@ -11,6 +11,7 @@ public class Boat : MonoBehaviour
     public List<GameObject> fishes;
     public List<Transform> fishSpawnpoints;
     public string registerNumber;
+    public bool driverDead;
     
     [SerializeField] private float speed;
 
@@ -65,7 +66,7 @@ public class Boat : MonoBehaviour
     {
         passed = true;
 
-        if (!Legal || !permit.isLegal)
+        if (!Legal && !driverDead)
             GameManager.GM.Mistakes++;
 
         print(GameManager.GM.Mistakes);
