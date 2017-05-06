@@ -9,26 +9,24 @@ public class Arrow : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up;
-        StartCoroutine("Lifetime");
+        rb.velocity = Vector2.up * 4.3f;
     }
 	void Update ()
     {
         transform.localScale -= new Vector3(0.0005f, 0.005f, 0);
+        if (transform.localScale.y <= 0)
+            Destroy(gameObject);
+
+        if (rb.velocity.y > 0)
+            rb.velocity -= new Vector2(0, 0.05f);
     }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Fisher")
         {
-            print("hit fisher");
             col.gameObject.SendMessage("Death");
             Destroy(gameObject);
         }
 
-    }
-    private IEnumerator Lifetime()
-    {
-        yield return new WaitForSeconds(5);
-        Destroy(gameObject);
     }
 }

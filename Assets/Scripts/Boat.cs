@@ -15,13 +15,15 @@ public class Boat : MonoBehaviour
     [SerializeField] private float speed;
 
     private Transform startPoint, endPoint;
+    private TextMesh textMesh;
     private bool passed;
 
     private void Start()
     {
         Legal = Random.value > .3f;
         registerNumber = CreateRegisterNumber();
-
+        textMesh = GetComponentInChildren<TextMesh>();
+        textMesh.text = registerNumber;
         permit = new Permit(this);
         SpawnFish();
 

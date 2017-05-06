@@ -40,7 +40,7 @@ public class Permit
 
         allowedFishes = new List<GameObject>();
 
-        while (allowedFishes.Count < 5)
+        while (allowedFishes.Count < 4)
         {
             GameObject fish = GameManager.GM.fishPrefabs[UnityEngine.Random.Range(0, GameManager.GM.fishPrefabs.Count)];
             if (!allowedFishes.Contains(fish))

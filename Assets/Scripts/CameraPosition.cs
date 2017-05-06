@@ -39,6 +39,9 @@ public class CameraPosition : MonoBehaviour
 
 	public void CameraZoom()
     {
+        if (GameManager.GM.shooting)
+            GameManager.GM.ShootMode(false);
+
         Vector3 zoomPos = new Vector3(targetPos.position.x, targetPos.position.y, -10);
         zoomed = true;
         table.gameObject.SetActive(false);
