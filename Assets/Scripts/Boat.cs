@@ -13,6 +13,7 @@ public class Boat : MonoBehaviour
     
     [SerializeField] private float speed;
     private Transform startPoint, endPoint;
+    private bool passed;
 
     private void Start()
     {
@@ -35,10 +36,13 @@ public class Boat : MonoBehaviour
         {
             transform.Translate(Vector2.right * Time.deltaTime * speed);
         }
-        //else
-        //{
-        //    // reach end stuff
-        //}
+        else
+        {
+            if (!passed)
+            {
+                BoatPassCheck();
+            }
+        }
     }
 
     private string CreateRegisterNumber()
@@ -50,5 +54,15 @@ public class Boat : MonoBehaviour
             number += characters[Random.Range(0, characters.Length)];
         }
         return number;
+    }
+    private void BoatPassCheck()
+    {
+        passed = true;
+
+        if (!Legal || !permit.isLegal)
+            GameManager.GM.Mistakes++;
+
+        print(GameManager.GM.Mistakes);
+        gameObject.SetActive(false);
     }
 }

@@ -7,10 +7,9 @@ public class CameraPosition : MonoBehaviour
 {
     public Transform targetPos;
     public Image table, zoomOverlay;
-    public Texture2D cursorTexture;
     public float cameraHorizontalSpeed;
 
-    private bool zoomed, shooting;
+    private bool zoomed;
     
     void Start ()
     {
@@ -29,11 +28,11 @@ public class CameraPosition : MonoBehaviour
                 transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal") * Time.deltaTime * cameraHorizontalSpeed, 0));
             }
         }
-        if (shooting)
+        if (GameManager.GM.shooting)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                ShootMode(false);
+                GameManager.GM.ShootMode(false);
             }
         }
     }
@@ -52,18 +51,5 @@ public class CameraPosition : MonoBehaviour
         zoomOverlay.gameObject.SetActive(false);
         table.gameObject.SetActive(true);
         transform.position = new Vector3(0, 0, -10);
-    }
-    public void ShootMode(bool on)
-    {
-        if (on)
-        {
-            shooting = true;
-            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
-        }
-        else
-        {
-            shooting = false;
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
     }
 }
