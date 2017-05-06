@@ -12,6 +12,7 @@ public class Boat : MonoBehaviour
     public string registerNumber;
     
     [SerializeField] private float speed;
+    private Transform startPoint, endPoint;
 
     private void Start()
     {
@@ -23,11 +24,21 @@ public class Boat : MonoBehaviour
         print(Legal + " : " + permit.isLegal);
         print(registerNumber + " : " + permit.registerNumber);
         print(permit.expirationDate.Day + "." + permit.expirationDate.Month + "." + permit.expirationDate.Year);
+
+        startPoint = GameObject.Find("StartPoint").GetComponent<Transform>();
+        endPoint = GameObject.Find("EndPoint").GetComponent<Transform>();
     }
 
     private void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        if (transform.position.x < endPoint.position.x)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
+        }
+        //else
+        //{
+        //    // reach end stuff
+        //}
     }
 
     private string CreateRegisterNumber()

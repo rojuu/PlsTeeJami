@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CameraPosition : MonoBehaviour
 {
     public Transform targetPos;
-    public Image table;
+    public Image table, zoomOverlay;
     public Texture2D cursorTexture;
     public float cameraHorizontalSpeed;
 
@@ -43,11 +43,13 @@ public class CameraPosition : MonoBehaviour
         Vector3 zoomPos = new Vector3(targetPos.position.x, targetPos.position.y, -10);
         zoomed = true;
         table.gameObject.SetActive(false);
+        zoomOverlay.gameObject.SetActive(true);
         transform.position = zoomPos;
     }
     private void CameraReturn()
     {
         zoomed = false;
+        zoomOverlay.gameObject.SetActive(false);
         table.gameObject.SetActive(true);
         transform.position = new Vector3(0, 0, -10);
     }
