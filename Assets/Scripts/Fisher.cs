@@ -4,38 +4,26 @@ using UnityEngine;
 
 public class Fisher : MonoBehaviour
 {
-    public GameObject arrowPrefab;
-
-    private bool mouseOver;
+    public SpriteRenderer zoomedFisher;
+    
     private ParticleSystem particleEffect;
-	
+    private Boat boat;
+
     void Start()
     {
         particleEffect = GetComponentInChildren<ParticleSystem>();
-    }
-	void Update ()
-    {
-        if (Input.GetMouseButtonDown(0) && GameManager.GM.shooting)
-        {
-            Vector2 arrowPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Vector2 arrowPos = new Vector2(Input.mousePosition., Input.mousePosition.y - 10);
-            Instantiate(arrowPrefab, new Vector2(arrowPos.x, arrowPos.y - 2), Quaternion.identity);
-            //Death();
-        }
-    }
-
-    void OnMouseEnter()
-    {
-        mouseOver = true;
-    }
-    void OnMouseExit()
-    {
-        mouseOver = false;
+        boat = GetComponentInParent<Boat>();
     }
 
     private void Death()
     {
         particleEffect.Emit(particleEffect.main.maxParticles);
         GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+        GetComponent<BoxCollider2D>().enabled = false;
+        zoomedFisher.enabled = false;
+        boat.driverDead = true;
+        if (boat.Legal)
+            GameManager.GM.Mistakes++;
+
     }
 }

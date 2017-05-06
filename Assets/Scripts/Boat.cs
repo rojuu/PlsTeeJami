@@ -11,17 +11,20 @@ public class Boat : MonoBehaviour
     public List<GameObject> fishes;
     public List<Transform> fishSpawnpoints;
     public string registerNumber;
+    public bool driverDead;
     
     [SerializeField] private float speed;
 
     private Transform startPoint, endPoint;
+    private TextMesh textMesh;
     private bool passed;
 
     private void Start()
     {
         Legal = Random.value > .3f;
         registerNumber = CreateRegisterNumber();
-
+        textMesh = GetComponentInChildren<TextMesh>();
+        textMesh.text = registerNumber;
         permit = new Permit(this);
         SpawnFish();
 
@@ -63,7 +66,7 @@ public class Boat : MonoBehaviour
     {
         passed = true;
 
-        if (!Legal || !permit.isLegal)
+        if (!Legal && !driverDead)
             GameManager.GM.Mistakes++;
 
         print(GameManager.GM.Mistakes);

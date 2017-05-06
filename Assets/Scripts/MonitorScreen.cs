@@ -4,17 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MonitorScreen : MonoBehaviour {
-    
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+
+    public Image[] fishImages;
 
     public void SetPermitObjects(Permit boatPermit)
     {
@@ -25,6 +16,13 @@ public class MonitorScreen : MonoBehaviour {
         for (int i = 0; i < boatPermit.allowedFishes.Count; i++)
         {
             permitTexts[3 + i].text = boatPermit.allowedFishes[i].name;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            fishImages[i].enabled = true;
+            fishImages[i].sprite = boatPermit.allowedFishes[i].GetComponent<SpriteRenderer>().sprite;
+            fishImages[i].color = boatPermit.allowedFishes[i].GetComponent<SpriteRenderer>().color;
         }
     }
 }

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e97fd7c07e302264cb369d81ffcfc880
+timeCreated: 1494095681
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Buxton Sketch
+  fontNames:
+  - Buxton Sketch
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

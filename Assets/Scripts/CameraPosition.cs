@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class CameraPosition : MonoBehaviour
 {
-    public Transform targetPos;
+    public Transform targetPos, startPos, endPos;
     public Image table, zoomOverlay;
     public float cameraHorizontalSpeed;
-
+    
     private bool zoomed;
     
     void Start ()
@@ -23,9 +23,13 @@ public class CameraPosition : MonoBehaviour
             {
                 CameraReturn();
             }
-            if (Input.GetAxisRaw("Horizontal") != 0)
+            if (Input.GetAxisRaw("Horizontal") < 0 && transform.position.x > startPos.position.x + 12f)
             {
-                transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal") * Time.deltaTime * cameraHorizontalSpeed, 0));
+                transform.Translate(Vector2.left * Time.deltaTime * cameraHorizontalSpeed, 0);
+            }
+            else if (Input.GetAxisRaw("Horizontal") > 0 && transform.position.x < endPos.position.x - 12f)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * cameraHorizontalSpeed, 0);
             }
         }
         if (GameManager.GM.shooting)
@@ -39,6 +43,9 @@ public class CameraPosition : MonoBehaviour
 
 	public void CameraZoom()
     {
+        if (GameManager.GM.shooting)
+            GameManager.GM.ShootMode(false);
+
         Vector3 zoomPos = new Vector3(targetPos.position.x, targetPos.position.y, -10);
         zoomed = true;
         table.gameObject.SetActive(false);

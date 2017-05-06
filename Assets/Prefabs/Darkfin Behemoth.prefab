@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1269085704902196}
+  m_RootGameObject: {fileID: 1619283284489644}
   m_IsPrefabParent: 1
---- !u!1 &1269085704902196
+--- !u!1 &1619283284489644
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4917115695913702}
-  - component: {fileID: 212802928374646040}
+  - component: {fileID: 4510286343211764}
+  - component: {fileID: 212712893022257502}
   m_Layer: 0
-  m_Name: Fish2
+  m_Name: Darkfin Behemoth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4917115695913702
+--- !u!4 &4510286343211764
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1269085704902196}
+  m_GameObject: {fileID: 1619283284489644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.28, y: 1.86, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212802928374646040
+--- !u!212 &212712893022257502
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1269085704902196}
+  m_GameObject: {fileID: 1619283284489644}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: af75c9ea6eb5c3848893507a9139b918, type: 3}
-  m_Color: {r: 1, g: 0.6028397, b: 0.3455882, a: 1}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 21300000, guid: cdd735d3164328a45b9724cc257bffac, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
