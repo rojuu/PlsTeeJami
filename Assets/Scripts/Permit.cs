@@ -8,10 +8,10 @@ public class Permit
     public string owner;
     public string registerNumber;
     public DateTime expirationDate;
-    public List<Fish> allowedFishes;
+    public List<GameObject> allowedFishes;
     public bool isLegal;
 
-    private Boat boat;   
+    private Boat boat;
 
     public Permit (Boat boat)
     {
@@ -38,6 +38,15 @@ public class Permit
             isLegal = true;
         }
 
-        allowedFishes = new List<Fish>();
+        allowedFishes = new List<GameObject>();
+
+        while (allowedFishes.Count < 5)
+        {
+            GameObject fish = GameManager.GM.fishPrefabs[UnityEngine.Random.Range(0, GameManager.GM.fishPrefabs.Count)];
+            if (!allowedFishes.Contains(fish))
+                allowedFishes.Add(fish);
+        }
     }
+
 }
+
