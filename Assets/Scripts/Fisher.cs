@@ -24,6 +24,7 @@ public class Fisher : MonoBehaviour
         boat.driverDead = true;
         if (boat.Legal)
             GameManager.GM.Mistakes++;
-
+        else
+            GameManager.GM.Points += 10;
     }
 }

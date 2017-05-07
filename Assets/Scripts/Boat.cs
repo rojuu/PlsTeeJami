@@ -68,7 +68,8 @@ public class Boat : MonoBehaviour
 
         if (!Legal && !driverDead)
             GameManager.GM.Mistakes++;
-
+        else
+            GameManager.GM.Points += 10;
         print(GameManager.GM.Mistakes);
         gameObject.SetActive(false);
     }

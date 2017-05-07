@@ -34,7 +34,7 @@ public class CameraPosition : MonoBehaviour
         }
         if (GameManager.GM.shooting)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
             {
                 GameManager.GM.ShootMode(false);
             }

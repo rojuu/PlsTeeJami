@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform startPos;
     public Texture2D cursorTexture;
     public Text mistakes;
+    public Text pointsText;
     public MonitorScreen monitorScreen;
     public bool shooting;
 
@@ -28,7 +29,9 @@ public class GameManager : MonoBehaviour
             mistakes.text = "Mistakes : " + _mistakes;
         }
     }
-    
+    private int _points;
+    public int Points { get { return _points; } set { _points = value;  pointsText.text = "Points : " + _points; } }
+
     private void Awake()
     {
         if (GM == null)

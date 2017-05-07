@@ -9,11 +9,11 @@ public class Arrow : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up * 4.1f;
+        rb.velocity = Vector2.up * 3.6f;
     }
 	void Update ()
     {
-        transform.localScale -= new Vector3(0.0005f, 0.005f, 0);
+        transform.localScale -= new Vector3(0.0005f, 0.007f, 0);
         if (transform.localScale.y <= 0)
             Destroy(gameObject);
 
