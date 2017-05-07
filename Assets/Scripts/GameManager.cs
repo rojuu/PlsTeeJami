@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject shipPrefab;
     public Transform startPos;
     public Texture2D cursorTexture;
+    public Text mistakes;
     public MonitorScreen monitorScreen;
     public bool shooting;
 
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
             _mistakes = value;
             if (_mistakes >= 3)
                 GameOver();
+            mistakes.text = "Mistakes : " + _mistakes;
         }
     }
     
