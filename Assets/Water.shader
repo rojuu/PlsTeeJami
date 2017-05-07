@@ -52,7 +52,7 @@ Shader "Custom/Water"
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.worldPosition = mul(unity_ObjectToWorld, v.vertex);
-				o.vertex.y = o.vertex.y + (sin(o.worldPosition.x) * sin(_Time[2])) * o.worldPosition.x / 300;
+				o.vertex.y = o.vertex.y + (sin(o.vertex.x * 100) * sin(_Time[1] / 8)) * o.vertex.x / 10;
 				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
