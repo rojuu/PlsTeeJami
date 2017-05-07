@@ -8,13 +8,11 @@ public class JaniBoat : MonoBehaviour
 
     private GameObject permitOnScreen;
     private bool mouseOver;
-    private MonitorScreen monitorScreen;
+    //private MonitorScreen monitorScreen;
     private Boat boat; // zoomed boat
 
-    void Start ()
+    void Awake ()
     {
-        permitOnScreen = GameObject.Find("ScreenPermit");
-        monitorScreen = permitOnScreen.GetComponent<MonitorScreen>();
         boat = GetComponentInParent<Boat>();
     }
 	void Update ()
@@ -23,11 +21,8 @@ public class JaniBoat : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && mouseOver)
         {
-            monitorScreen.SetPermitObjects(boat.permit);
-            if (!permitOnScreen.activeInHierarchy)
-            {
-                permitOnScreen.SetActive(true);
-            }
+            GameManager.GM.monitorScreen.SetPermitObjects(boat.permit);
+            //permitOnScreen.SetActive(true);
         }
 	}
 

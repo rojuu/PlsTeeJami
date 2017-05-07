@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject shipPrefab;
     public Transform startPos;
     public Texture2D cursorTexture;
+    public MonitorScreen monitorScreen;
     public bool shooting;
 
     private float timer;
@@ -33,6 +34,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         nextSpawn = Random.Range(12f, 20f);
+
+        GameObject permitOnScreen = GameObject.Find("ScreenPermit");
+        monitorScreen = permitOnScreen.GetComponent<MonitorScreen>();
     }
 
     private void Update()
